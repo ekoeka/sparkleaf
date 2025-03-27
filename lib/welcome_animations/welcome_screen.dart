@@ -3,6 +3,7 @@ import 'package:sparkleaf/all_used/all_background_part/all_background_parts.dart
 import 'package:sparkleaf/all_used/all_input_decoration.dart';
 import 'package:sparkleaf/all_used/all_style_text.dart';
 import 'package:sparkleaf/login_screens/signin/signin_page.dart';
+import 'package:sparkleaf/login_screens/signup/signup_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -60,7 +61,11 @@ class WelcomeScreen extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  //handle sign-in here
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignUpPage()),
+                                  );
                                 },
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: Color(0xFF058135),
@@ -71,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                child: Text('NEXT',
+                                child: Text('SIGN UP',
                                     style: SignFontManager.button
                                         .copyWith(color: Color(0xFF058135))),
                               ),
@@ -109,12 +114,41 @@ class WelcomeScreen extends StatelessWidget {
                     flex: 1,
                     child: Container(
                       alignment: Alignment.bottomCenter,
-                      child: Center(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
+          ),
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Positioned(
+                bottom: -230,
+                left: 10,
+                right: 10,
+                child: Container(
+                  width: 300,
+                  height: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -230,
+                child: Image.asset(
+                  'assets/images/farmer_character.png',
+                  width: 500,
+                  height: 500,
+                ),
+              ),
+            ],
           )
         ],
       ),
