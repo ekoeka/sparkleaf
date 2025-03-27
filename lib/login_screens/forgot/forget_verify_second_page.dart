@@ -19,86 +19,99 @@ class ForgetVerifySecondPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                          'FORGOT',
-                          style: SignFontManager.judul
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('FORGOT', style: SignFontManager.judul),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('YOUR PASSWORD',
+                                    style: SignFontManager.judul2),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                          'YOUR PASSWORD',
-                          style: SignFontManager.judul2
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 80),
-                  Text(
-                    '   PASSWORD',
-                    style: SignFontManager.textbox
-                  ),
-                  TextField(
-                      decoration: labelInputDecoration(),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                      '   CONFIRM PASSWORD',
-                      style: SignFontManager.textbox
-                  ),
-                  TextField(
-                    decoration: labelInputDecoration(),
-                  ),
-                  SizedBox(height: 270),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Color(0xFF058135),
-                          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Center(
+                          child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('   PASSWORD', style: SignFontManager.textbox),
+                          TextField(
+                            decoration: labelInputDecoration(),
                           ),
-                        ),
-                        child: Text(
-                          'BACK',
-                          style:  SignFontManager.button
-                        ),
-                      ),
-                      SizedBox(width: 40),
-                      ElevatedButton(
-                        onPressed: (){
-                          //handle sign-in here
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Color(0xFF058135),
-                          backgroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                          SizedBox(height: 20),
+                          Text('   CONFIRM PASSWORD',
+                              style: SignFontManager.textbox),
+                          TextField(
+                            decoration: labelInputDecoration(),
                           ),
-                        ),
-                        child: Text(
-                            'NEXT',
-                            style:  SignFontManager.button.copyWith(
-                              color: Color(0xFF058135)
-                            )
-                        ),
-                      )
-                    ],
-                  )
+                        ],
+                      )),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor: Color(0xFF058135),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 40.0, vertical: 15.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            child: Text('BACK', style: SignFontManager.button),
+                          ),
+                          SizedBox(width: 40),
+                          ElevatedButton(
+                            onPressed: () {
+                              //handle sign-in here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Color(0xFF058135),
+                              backgroundColor: Colors.white,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 40.0, vertical: 15.0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            child: Text('NEXT',
+                                style: SignFontManager.button
+                                    .copyWith(color: Color(0xFF058135))),
+                          )
+                        ],
+                      )),
+                    ),
+                  ),
                 ],
               ),
-
             ),
           )
         ],

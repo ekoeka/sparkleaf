@@ -6,7 +6,15 @@ import 'package:sparkleaf/login_screens/hide_password.dart';
 import 'package:sparkleaf/login_screens/signin/signin_page.dart';
 
 class SignUpSecondPage extends StatelessWidget {
-  const SignUpSecondPage({super.key});
+  final String name;
+  final String username;
+  final String email;
+
+  SignUpSecondPage({
+    required this.name,
+    required this.username,
+    required this.email,
+  })
 
   @override
   Widget build(BuildContext context) {
@@ -25,42 +33,31 @@ class SignUpSecondPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'SIGN UP',
-                        style: SignFontManager.judul
-                      ),
+                      Text('SIGN UP', style: SignFontManager.judul),
                     ],
                   ),
                   SizedBox(height: 20),
-                  Text(
-                    '   PHONE NUMBER',
-                    style: SignFontManager.textbox
-                  ),
+                  Text('   PHONE NUMBER', style: SignFontManager.textbox),
                   TextField(
-                      decoration: labelInputDecoration(),
+                    decoration: labelInputDecoration(),
                   ),
                   SizedBox(height: 10),
-                  Text(
-                    '   PASSWORD',
-                    style: SignFontManager.textbox
-                  ),
+                  Text('   PASSWORD', style: SignFontManager.textbox),
                   PasswordField(),
                   SizedBox(height: 10),
-                  Text(
-                      '   CONFIRM PASSWORD',
-                      style: SignFontManager.textbox
-                  ),
+                  Text('   CONFIRM PASSWORD', style: SignFontManager.textbox),
                   PasswordField(),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => SignInPage()),
-                                (Route<dynamic> route) => route.isFirst,
+                            MaterialPageRoute(
+                                builder: (context) => SignInPage()),
+                            (Route<dynamic> route) => route.isFirst,
                           );
                         },
                         child: Text(
@@ -75,45 +72,40 @@ class SignUpSecondPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Color(0xFF058135),
-                          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40.0, vertical: 15.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        child: Text(
-                          'BACK',
-                          style:  SignFontManager.button
-                        ),
+                        child: Text('BACK', style: SignFontManager.button),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
-                        onPressed: (){
+                        onPressed: () {
                           //handle sign-in here
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Color(0xFF058135),
-                          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40.0, vertical: 15.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        child: Text(
-                            'SIGN UP',
-                            style:  SignFontManager.button
-                        ),
+                        child: Text('SIGN UP', style: SignFontManager.button),
                       )
                     ],
                   )
                 ],
               ),
-
             ),
           )
         ],
