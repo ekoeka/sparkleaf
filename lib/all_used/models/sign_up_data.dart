@@ -12,4 +12,12 @@ class SignUpData {
     required this.phoneNumber,
     required this.password,
   });
+  // Metode untuk mereset semua data
+  void resetFields() {
+    name = '';
+    username = '';
+    email = '';
+    phoneNumber = '';
+    password = '';
+  }
 }

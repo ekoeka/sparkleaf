@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../all_used/all_input_decoration.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({super.key});
+  final TextEditingController controller;
+
+  const PasswordField({super.key, required this.controller});
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
@@ -20,13 +22,13 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 10.0), // Menambahkan padding kanan
+      padding: EdgeInsets.only(right: 10.0),
       child: TextField(
+        controller: widget.controller,
         obscureText: _obscureText,
         decoration: labelInputDecoration().copyWith(
           suffixIcon: Padding(
             padding: EdgeInsetsDirectional.only(end: 10.0),
-            // Mengatur padding internal pada ikon
             child: IconButton(
               icon: Icon(
                 _obscureText ? Icons.visibility : Icons.visibility_off,

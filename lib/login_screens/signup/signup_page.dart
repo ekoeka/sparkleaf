@@ -6,11 +6,20 @@ import 'package:sparkleaf/all_used/all_input_decoration.dart';
 import 'package:sparkleaf/all_used/all_style_text.dart';
 import 'package:sparkleaf/login_screens/signin/signin_page.dart';
 import 'package:sparkleaf/login_screens/signup/signup_second_page.dart';
+import 'package:sparkleaf/all_used/models/sign_up_data.dart';
 
 class SignUpPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+
+  SignUpPage({super.key});
+
+  void resetAllFields() {
+    nameController.clear();
+    usernameController.clear();
+    emailController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +65,7 @@ class SignUpPage extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {
+                          resetAllFields();
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
@@ -76,23 +86,21 @@ class SignUpPage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          SignUpData signUpData = SignUpData(
-                            name: nameController.text,
-                            username: usernameController.text,
-                            email: emailController.text,
-                            phoneNumber: ''
-                          )
-
                           Navigator.push(
                             context,
                             PageRouteBuilder(
                               pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      SignUpSecondPage(
-                                name: nameController.text,
-                                username: usernameController,
-                                email: emailController,
-                              ),
+                                  (context, animation, secondaryAnimation) {
+                                return SignUpSecondPage(
+                                  signUpData: SignUpData(
+                                    name: nameController.text,
+                                    username: usernameController.text,
+                                    email: emailController.text,
+                                    phoneNumber: '',
+                                    password: '',
+                                  ),
+                                );
+                              },
                               transitionsBuilder: (context, animation,
                                   secondaryAnimation, child) {
                                 var begin = Offset(-1.0, 0.0);

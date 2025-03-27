@@ -7,7 +7,8 @@ import 'package:sparkleaf/login_screens/signup/signup_page.dart';
 import 'package:sparkleaf/login_screens/hide_password.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+  final TextEditingController siusernameController = TextEditingController();
+  final TextEditingController sipasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,78 +27,77 @@ class SignInPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'SIGN IN',
-                        style: SignFontManager.judul
-                      ),
+                      Text('SIGN IN', style: SignFontManager.judul),
                     ],
                   ),
                   SizedBox(height: 20),
-                  Text(
-                    '   USERNAME',
-                    style: SignFontManager.textbox
-                  ),
+                  Text('   USERNAME', style: SignFontManager.textbox),
                   TextField(
-                      decoration: labelInputDecoration(),
+                    controller: siusernameController,
+                    decoration: labelInputDecoration(),
                   ),
                   SizedBox(height: 10),
-                  Text(
-                    '   PASSWORD',
-                    style: SignFontManager.textbox
+                  Text('   PASSWORD', style: SignFontManager.textbox),
+                  PasswordField(
+                    controller: sipasswordController,
                   ),
-                  PasswordField(),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder: (context, animation, secondaryAnimation) => ForgotPage(),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  var begin = Offset(-1.0, 0.0);
-                                  var end = Offset.zero;
-                                  var curve = Curves.ease;
-
-                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                                  var offsetAnimation = animation.drive(tween);
-
-                                  return SlideTransition(
-                                    position: offsetAnimation,
-                                    child: child,
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'FORGOT YOUR PASSWORD?',
-                            style: SignFontManager.anotherbutton,
-                          ),
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        '|',
-                        style: TextStyle(
-                          fontSize: 20,
-                            color: Colors.white
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      TextButton(
-                        onPressed: (){
+                        onPressed: () {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => SignUpPage(),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      ForgotPage(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
                                 var begin = Offset(-1.0, 0.0);
                                 var end = Offset.zero;
                                 var curve = Curves.ease;
 
-                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+
+                                return SlideTransition(
+                                  position: offsetAnimation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'FORGOT YOUR PASSWORD?',
+                          style: SignFontManager.anotherbutton,
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        '|',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                      SizedBox(width: 5),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      SignUpPage(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                var begin = Offset(-1.0, 0.0);
+                                var end = Offset.zero;
+                                var curve = Curves.ease;
+
+                                var tween = Tween(begin: begin, end: end)
+                                    .chain(CurveTween(curve: curve));
                                 var offsetAnimation = animation.drive(tween);
 
                                 return SlideTransition(
@@ -113,7 +113,6 @@ class SignInPage extends StatelessWidget {
                           style: SignFontManager.anotherbutton,
                         ),
                       ),
-
                     ],
                   ),
                   SizedBox(height: 50),
@@ -121,31 +120,27 @@ class SignInPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: (){
+                        onPressed: () {
                           //handle sign-in here
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Color(0xFF01D150),
-                          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40.0, vertical: 15.0),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            side: BorderSide(
-                              color: Colors.white,
-                              width: 1.0,
-                            )
-                          ),
+                              borderRadius: BorderRadius.circular(30),
+                              side: BorderSide(
+                                color: Colors.white,
+                                width: 1.0,
+                              )),
                         ),
-                        child: Text(
-                          'SIGN IN',
-                          style:  SignFontManager.button
-                        ),
+                        child: Text('SIGN IN', style: SignFontManager.button),
                       )
                     ],
                   )
                 ],
               ),
-
             ),
           )
         ],
