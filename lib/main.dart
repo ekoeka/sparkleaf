@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:sparkleaf/services/auth_services.dart';
 import 'package:sparkleaf/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:sparkleaf/login_screens/signin/signin_page.dart';
 import 'package:sparkleaf/welcome_animations/welcome_screen.dart';
+import 'package:sparkleaf/main_screens/home/home_page.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
