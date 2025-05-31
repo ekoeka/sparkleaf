@@ -4,17 +4,23 @@ import 'package:sparkleaf/all_used/all_input_decoration.dart';
 import 'package:sparkleaf/all_used/all_style_text.dart';
 import 'package:sparkleaf/login_screens/hide_password.dart';
 import 'package:sparkleaf/login_screens/signin/signin_page.dart';
+import 'package:sparkleaf/all_used/models/sign_up_data.dart';
 
 class SignUpSecondPage extends StatelessWidget {
-  final String name;
-  final String username;
-  final String email;
+  final SignUpData signUpData;
 
-  SignUpSecondPage({
-    required this.name,
-    required this.username,
-    required this.email,
-  })
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  SignUpSecondPage({required this.signUpData});
+
+  void resetFields() {
+    phoneController.clear();
+    passwordController.clear();
+    confirmPasswordController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +45,19 @@ class SignUpSecondPage extends StatelessWidget {
                   SizedBox(height: 20),
                   Text('   PHONE NUMBER', style: SignFontManager.textbox),
                   TextField(
+                    controller: phoneController,
                     decoration: labelInputDecoration(),
                   ),
                   SizedBox(height: 10),
                   Text('   PASSWORD', style: SignFontManager.textbox),
-                  PasswordField(),
+                  PasswordField(
+                    controller: passwordController,
+                  ),
                   SizedBox(height: 10),
                   Text('   CONFIRM PASSWORD', style: SignFontManager.textbox),
-                  PasswordField(),
+                  PasswordField(
+                    controller: confirmPasswordController,
+                  ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
